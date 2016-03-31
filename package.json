@@ -1,0 +1,43 @@
+{
+  "name": "scrollbaz.js",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/scrollbaz.js",
+  "jsnext:main": "es/scrollbaz.js",
+  "scripts": {
+    "build": "rollup -c rollup.commonjs.config.js",
+    "prestart": "npm run build",
+    "start": "chokidar lib/scrollbaz.js -c 'npm run build'",
+    "minify": "uglifyjs dist/scrollbaz.js -o dist/scrollbaz.min.js -cm --comments all",
+    "prepublish": "rollup -c rollup.es6.config.js",
+    "postpublish": "rm -rf es",
+    "test": "xo && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/totora0155/scrollbaz.js.git"
+  },
+  "keywords": [
+    "scrollbar",
+    "ui"
+  ],
+  "author": "nju33",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/totora0155/scrollbaz.js/issues"
+  },
+  "homepage": "https://github.com/totora0155/scrollbaz.js#readme",
+  "devDependencies": {
+    "ava": "^0.13.0",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "chokidar-cli": "^1.2.0",
+    "rollup": "^0.25.6",
+    "rollup-plugin-babel": "^2.4.0",
+    "uglify-js": "^2.6.2",
+    "xo": "^0.13.0"
+  },
+  "xo": {
+    "esnext": true,
+    "space": 2
+  }
+}
